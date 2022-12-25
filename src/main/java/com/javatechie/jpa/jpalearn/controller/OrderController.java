@@ -39,7 +39,14 @@ public class OrderController {
     }
     
     @GetMapping("/getInfo")
-    public List<OrderResponse> getJoinInformation() {
+    public List<OrderResponse> getJoinInformation() {        
+        // JPQL
         return customerRepository.getJoinInformation();
+    }
+    
+    @GetMapping("/getInfoObj")
+    public List<OrderResponse> getJoinInformationNative() {
+        // Native Query
+        return customerRepository.getAllOrders();
     }
 }

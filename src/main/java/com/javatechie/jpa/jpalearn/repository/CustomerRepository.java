@@ -19,4 +19,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     
     @Query("SELECT new com.javatechie.jpa.jpalearn.dto.OrderResponse(c.name, p.productName, p.price) FROM Customer c JOIN c.products p")
     public List<OrderResponse> getJoinInformation();
+    
+    @Query(nativeQuery = true)
+    public List<OrderResponse> getAllOrders();
 }
